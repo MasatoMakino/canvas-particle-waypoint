@@ -1,0 +1,42 @@
+{
+  "name": "canvas-particle-waypoint",
+  "version": "0.3.8",
+  "description": "Particle waypoint module for canvas 2d",
+  "main": "./bin/index.js",
+  "types": "./bin/index.d.ts",
+  "repository": "https://MasatoMakino@github.com/MasatoMakino/canvas-particle-waypoint.git",
+  "author": "MasatoMakino <unagiinu.g@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "dat.gui": "^0.7.6",
+    "gulp": "^4.0.2",
+    "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
+    "gulptask-tsc": "https://github.com/MasatoMakino/gulptask-tsc.git",
+    "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
+    "gulptask-webpack": "https://github.com/MasatoMakino/gulptask-webpack.git",
+    "husky": "^3.0.9",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "ts-node": "^8.5.2",
+    "tweenjs": "^1.0.2",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "particle-waypoint": "https://github.com/MasatoMakino/particle-waypoint.git"
+  },
+  "scripts": {
+    "start:dev": "gulp start_dev",
+    "build": "gulp build && npm run doc:card",
+    "build:clean": "gulp build_clean && npm run doc:card",
+    "doc:card": "repoimg -n MasatoMakino/canvas-particle-waypoint -o ./docs/card.png",
+    "checkout:docs": "git checkout HEAD ./docs/api/ ./docs/demo/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
