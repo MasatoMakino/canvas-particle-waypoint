@@ -1,4 +1,4 @@
-import { CanvasParticle } from "./CanvasParticle";
+import { Canvas2DParticle } from "./Canvas2DParticle";
 import {
   ParticleGenerator,
   Particle,
@@ -6,7 +6,7 @@ import {
   ParticleGeneratorOption
 } from "particle-waypoint";
 
-export class CanvasParticleGenerator extends ParticleGenerator {
+export class Canvas2DParticleGenerator extends ParticleGenerator {
   protected ctx: CanvasRenderingContext2D;
   protected map: HTMLImageElement[]; //パーティクルに使用するテクスチャ配列。ビットマップもしくは描画済みのShapeを利用する。
   private mapCounter: number = 0;
@@ -37,7 +37,7 @@ export class CanvasParticleGenerator extends ParticleGenerator {
   }
 
   protected generateParticle(path: ParticleWay): Particle {
-    const particle = new CanvasParticle(path);
+    const particle = new Canvas2DParticle(path);
     particle.init(
       this.ctx,
       this.map[this.mapCounter],
@@ -69,7 +69,7 @@ export class CanvasParticleGenerator extends ParticleGenerator {
   }
 
   public draw(): void {
-    this._particles.forEach((p: CanvasParticle) => {
+    this._particles.forEach((p: Canvas2DParticle) => {
       p.draw();
     });
   }

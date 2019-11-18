@@ -1,6 +1,6 @@
 import { Particle } from "particle-waypoint";
 
-export class CanvasParticle extends Particle {
+export class Canvas2DParticle extends Particle {
   protected ctx: CanvasRenderingContext2D;
   protected bitmap: HTMLImageElement;
   protected positionX: number;

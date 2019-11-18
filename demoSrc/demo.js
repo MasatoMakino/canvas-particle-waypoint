@@ -1,5 +1,5 @@
 import { BezierUtil } from "particle-waypoint";
-import { CanvasParticleGenerator } from "../bin/";
+import { Canvas2DParticleGenerator } from "../bin/";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
 import { RAFTicker, RAFTickerEventType } from "raf-ticker";
@@ -36,7 +36,7 @@ const initGenerator = (way, canvas) => {
     console.log(img.width);
   };
 
-  const generator = new CanvasParticleGenerator(
+  const generator = new Canvas2DParticleGenerator(
     canvas.getContext("2d"),
     way,
     img,
