@@ -43,6 +43,8 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
         this._rangeR = value;
     }
     draw() {
+        if (!this._particles)
+            return;
         this._particles.forEach((p) => {
             p.draw();
         });
