@@ -69,6 +69,7 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
   }
 
   public draw(): void {
+    if (!this._particles) return;
     this._particles.forEach((p: Canvas2DParticle) => {
       p.draw();
     });
