@@ -6,9 +6,11 @@ import {
   ParticleGeneratorOption
 } from "particle-waypoint";
 
+export type MapElement = HTMLImageElement | HTMLCanvasElement;
+
 export class Canvas2DParticleGenerator extends ParticleGenerator {
   protected ctx: CanvasRenderingContext2D;
-  protected map: HTMLImageElement[]; //パーティクルに使用するテクスチャ配列。ビットマップもしくは描画済みのShapeを利用する。
+  protected map: MapElement[]; //パーティクルに使用するテクスチャ配列。ビットマップもしくはCanvas。
   private mapCounter: number = 0;
 
   private _rangeR: number = 0.0;
@@ -17,7 +19,7 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
   constructor(
     ctx: CanvasRenderingContext2D,
     path: ParticleWay | ParticleWay[],
-    map: HTMLImageElement | HTMLImageElement[],
+    map: MapElement | MapElement[],
     option?: CanvasParticleGeneratorOption
   ) {
     super(path, option);

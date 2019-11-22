@@ -1,8 +1,9 @@
 import { Particle } from "particle-waypoint";
+import { MapElement } from "./Canvas2DParticleGenerator";
 
 export class Canvas2DParticle extends Particle {
   protected ctx: CanvasRenderingContext2D;
-  protected bitmap: HTMLImageElement;
+  protected bitmap: MapElement;
   protected positionX: number;
   protected positionY: number;
 
@@ -16,7 +17,7 @@ export class Canvas2DParticle extends Particle {
 
   init(
     ctx: CanvasRenderingContext2D,
-    bitmap: HTMLImageElement,
+    bitmap: MapElement,
     rangeR: number,
     rangeRotationSpeed: number
   ): void {
