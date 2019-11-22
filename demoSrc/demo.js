@@ -29,6 +29,8 @@ const onDomContentsLoaded = () => {
  * @return {CanvasParticleGenerator}
  */
 const initGenerator = (way, canvas) => {
+  const imgArray = [];
+
   const img = new Image();
   img.src = "./circle.png";
   console.log(img.width);
