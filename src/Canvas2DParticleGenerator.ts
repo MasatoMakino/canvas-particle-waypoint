@@ -32,6 +32,12 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
     }
 
     if (Array.isArray(map)) {
+      if (map.length === 0) {
+        console.warn(
+          "Canvas2DParticleGenerator : オプションとして渡されたビットマップ配列が空です。このクラスは動作しますが、一切の表示を行いません。"
+        );
+        console.trace();
+      }
       this.map = map;
     } else {
       this.map = [map];

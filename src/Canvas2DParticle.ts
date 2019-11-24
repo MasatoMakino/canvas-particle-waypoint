@@ -49,6 +49,7 @@ export class Canvas2DParticle extends Particle {
   }
 
   public draw(): void {
+    if (this.bitmap == null) return;
     const px = this.positionX - this.bitmap.width / 2;
     const py = this.positionY - this.bitmap.height / 2;
     this.ctx.drawImage(this.bitmap, (0.5 + px) | 0, (0.5 + py) | 0);
