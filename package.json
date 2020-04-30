@@ -1,6 +1,6 @@
 {
   "name": "canvas-particle-waypoint",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Particle waypoint module for canvas 2d",
   "main": "./bin/index.js",
   "types": "./bin/index.d.ts",
@@ -8,18 +8,18 @@
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "dat.gui": "^0.7.6",
+    "dat.gui": "^0.7.7",
     "gulp": "^4.0.2",
     "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page.git",
     "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
     "gulptask-tsc": "https://github.com/MasatoMakino/gulptask-tsc.git",
     "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
-    "husky": "^3.1.0",
-    "prettier": "^1.19.1",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
-    "ts-node": "^8.5.4",
+    "ts-node": "^8.9.1",
     "tweenjs": "^1.0.2",
-    "typescript": "^3.7.3"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "particle-waypoint": "https://github.com/MasatoMakino/particle-waypoint.git"
