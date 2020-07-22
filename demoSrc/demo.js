@@ -1,5 +1,5 @@
 import { BezierUtil } from "particle-waypoint";
-import { Canvas2DParticleGenerator } from "../bin/";
+import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
 import { RAFTicker, RAFTickerEventType } from "raf-ticker";
@@ -15,7 +15,7 @@ const onDomContentsLoaded = () => {
   const way = initWay();
   const generator = initGenerator(way, canvas);
 
-  RAFTicker.addEventListener(RAFTickerEventType.tick, e => {
+  RAFTicker.addEventListener(RAFTickerEventType.tick, (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     generator.draw();
   });
@@ -43,7 +43,7 @@ const initGenerator = (way, canvas) => {
     way,
     img,
     {
-      ease: createjs.Ease.cubicInOut
+      ease: createjs.Ease.cubicInOut,
     }
   );
   generator.setSpeed(33, 30);
@@ -55,7 +55,7 @@ const initGenerator = (way, canvas) => {
  * デモのパラメーターを操作するGUIを初期化する。
  * @param generator
  */
-const initGUI = generator => {
+const initGUI = (generator) => {
   const prop = {
     isPlay: true,
     path: "heart",
@@ -64,7 +64,7 @@ const initGUI = generator => {
     visiblePassage: true,
     clear: () => {
       generator.removeAllParticles();
-    }
+    },
   };
   const gui = new dat.GUI();
   gui.add(generator, "particleInterval", 33, 1000);

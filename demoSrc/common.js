@@ -1,5 +1,5 @@
 import { getHeartPath } from "./SamplePath";
-import { Canvas2DParticleWay } from "../bin/index";
+import { Canvas2DParticleWay } from "../";
 import { BezierUtil } from "particle-waypoint";
 
 /**

@@ -5,8 +5,4 @@ export class Canvas2DParticleWay extends ParticleWay {
     super(points);
     if (!option) return;
   }
-
-  set points(points: number[][]) {
-    super.points = points;
-  }
 }

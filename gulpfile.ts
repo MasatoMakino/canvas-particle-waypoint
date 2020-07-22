@@ -9,7 +9,7 @@ const { bundleDemo, watchDemo } = require("gulptask-demo-page").get({
   style: `body{background-color: #000}`,
 });
 const { tsc, tscClean, watchTsc } = require("gulptask-tsc").get({
-  projects: ["./tsconfig.json"],
+  projects: ["tsconfig.json", "tsconfig.esm.json"],
 });
 
 const watchTasks = async () => {
