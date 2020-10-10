@@ -1,5 +1,5 @@
 import { Canvas2DParticle } from "./Canvas2DParticle";
-import { ParticleGenerator } from "particle-waypoint";
+import { ParticleGenerator, } from "particle-waypoint";
 export class Canvas2DParticleGenerator extends ParticleGenerator {
     constructor(ctx, path, map, option) {
         super(path, option);
@@ -47,9 +47,10 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
         this._rangeR = value;
     }
     draw() {
-        if (!this._particles)
+        if (!this.particleContainer ||
+            this.particleContainer.particles.length === 0)
             return;
-        this._particles.forEach((p) => {
+        this.particleContainer.particles.forEach((p) => {
             p.draw();
         });
     }
