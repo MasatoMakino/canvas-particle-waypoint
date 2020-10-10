@@ -6,6 +6,10 @@
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=MasatoMakino&repo=canvas-particle-waypoint&show_owner=true)](https://github.com/MasatoMakino/canvas-particle-waypoint)
 
+## Demo
+
+[Demo page](https://masatomakino.github.io/canvas-particle-waypoint/demo/)
+
 ## License
 
 [MIT licensed](LICENSE).
