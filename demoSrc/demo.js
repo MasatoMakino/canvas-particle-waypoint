@@ -1,4 +1,4 @@
-import { BezierUtil } from "particle-waypoint";
+import { BezierUtil, GenerationMode } from "particle-waypoint";
 import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
@@ -15,7 +15,7 @@ const onDomContentsLoaded = () => {
   const way = initWay();
   const generator = initGenerator(way, canvas);
 
-  RAFTicker.addEventListener(RAFTickerEventType.tick, (e) => {
+  RAFTicker.addListener(RAFTickerEventType.tick, (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     generator.draw();
   });
@@ -46,7 +46,7 @@ const initGenerator = (way, canvas) => {
       ease: createjs.Ease.cubicInOut,
     }
   );
-  generator.setSpeed(33, 30);
+  generator.animator.setSpeed(33, 30);
   generator.play();
   return generator;
 };
@@ -61,14 +61,15 @@ const initGUI = (generator) => {
     path: "heart",
     ease: "cubicInOut",
     valve: true,
-    visiblePassage: true,
+    mode: "SEQUENTIAL",
     clear: () => {
-      generator.removeAllParticles();
+      generator.particleContainer.removeAll();
     },
   };
   const gui = new dat.GUI();
-  gui.add(generator, "particleInterval", 33, 1000);
-  gui.add(generator, "speedPerSec", 0.0001, 0.5);
+  const animator = generator.animator;
+  gui.add(animator, "generationInterval", 33, 1000);
+  gui.add(animator, "speedPerSec", 0.0001, 0.5);
 
   gui.add(generator, "rangeR", 0.0, 32.0, 0.1);
   gui.add(generator, "rangeRotationSpeed", 0.0, 3.14 * 4, 0.01);
@@ -83,7 +84,7 @@ const initGUI = (generator) => {
         ease = createjs.Ease.cubicInOut;
         break;
     }
-    generator.updateEase(ease, generator.isLoop);
+    generator.animator.updateEase(ease, generator.modeManager.mode);
   });
   gui.add(prop, "path", ["heart", "circle", "triangle"]).onChange(() => {
     let path;
@@ -98,7 +99,7 @@ const initGUI = (generator) => {
         path = getTriangle();
         break;
     }
-    generator.path[0].points = path;
+    generator.multipleWays.ways[0].points = path;
   });
   gui.add(prop, "isPlay").onChange(() => {
     if (prop.isPlay) {
@@ -107,19 +108,21 @@ const initGUI = (generator) => {
       generator.stop();
     }
   });
-  gui.add(generator, "isLoop");
-  gui.add(prop, "valve").onChange(() => {
-    if (prop.valve) {
-      generator.openValve();
-    } else {
-      generator.closeValve();
+  gui.add(prop, "mode", ["SEQUENTIAL", "LOOP"]).onChange(() => {
+    switch (prop.mode) {
+      case "SEQUENTIAL":
+        generator.modeManager.mode = GenerationMode.SEQUENTIAL;
+        break;
+      case "LOOP":
+        generator.modeManager.mode = GenerationMode.LOOP;
+        break;
     }
   });
-  gui.add(prop, "visiblePassage").onChange(() => {
-    if (prop.visiblePassage) {
-      generator.path.showPassage();
+  gui.add(prop, "valve").onChange(() => {
+    if (prop.valve) {
+      generator.valve.open();
     } else {
-      generator.path.hidePassage();
+      generator.valve.close();
     }
   });
   gui.add(prop, "clear");
