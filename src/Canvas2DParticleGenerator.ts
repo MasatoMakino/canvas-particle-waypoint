@@ -3,7 +3,7 @@ import {
   ParticleGenerator,
   Particle,
   ParticleWay,
-  ParticleGeneratorOption
+  ParticleGeneratorOption,
 } from "particle-waypoint";
 
 export type MapElement = HTMLImageElement | HTMLCanvasElement;
@@ -77,8 +77,12 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
   }
 
   public draw(): void {
-    if (!this._particles) return;
-    this._particles.forEach((p: Canvas2DParticle) => {
+    if (
+      !this.particleContainer ||
+      this.particleContainer.particles.length === 0
+    )
+      return;
+    this.particleContainer.particles.forEach((p: Canvas2DParticle) => {
       p.draw();
     });
   }
