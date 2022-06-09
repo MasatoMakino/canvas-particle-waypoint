@@ -1,5 +1,5 @@
 {
-  "name": "canvas-particle-waypoint",
+  "name": "@masatomakino/canvas-particle-waypoint",
   "version": "0.5.2",
   "description": "Particle waypoint module for canvas 2d",
   "main": "./lib/index.js",
@@ -9,7 +9,10 @@
     "lib",
     "esm"
   ],
-  "repository": "https://MasatoMakino@github.com/MasatoMakino/canvas-particle-waypoint.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://MasatoMakino@github.com/MasatoMakino/canvas-particle-waypoint.git"
+  },
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -36,5 +39,13 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "bugs": {
+    "url": "https://github.com/MasatoMakino/canvas-particle-waypoint/issues"
+  },
+  "homepage": "https://github.com/MasatoMakino/canvas-particle-waypoint#readme",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   }
 }
