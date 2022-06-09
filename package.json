@@ -30,10 +30,15 @@
     "typescript": "^4.7.3"
   },
   "scripts": {
-    "start:dev": "gulp start_dev",
-    "build": "gulp build",
-    "build:clean": "gulp build_clean",
-    "checkout:docs": "git checkout HEAD ./docs/"
+    "prepare": "husky install",
+    "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
+    "build": "npm run buildTS && npm run demo && npm run typedocs",
+    "demo": "npx @masatomakino/gulptask-demo-page --externalScripts 'https://code.createjs.com/1.0.0/createjs.min.js'",
+    "buildTS": "npx tsc --project tsconfig.json & npx tsc --project tsconfig.esm.json",
+    "typedocs": "npx typedoc --out ./docs/api src/index.ts",
+    "server": "npx @masatomakino/gulptask-dev-server -b ./docs/demo",
+    "watch:demo": "npm run demo -- -W",
+    "watch:tsc": "npx tsc -W --incremental --project tsconfig.json & npx tsc -W --incremental --project tsconfig.esm.json"
   },
   "bugs": {
     "url": "https://github.com/MasatoMakino/canvas-particle-waypoint/issues"
