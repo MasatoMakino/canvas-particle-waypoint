@@ -4,7 +4,7 @@ import {
   Particle,
   ParticleWay,
   ParticleGeneratorOption,
-} from "particle-waypoint";
+} from "@masatomakino/particle-waypoint";
 
 export type MapElement = HTMLImageElement | HTMLCanvasElement;
 
