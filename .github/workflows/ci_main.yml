@@ -20,7 +20,7 @@ on:
       - "tsconfig*.json"
 
 jobs:
-  jest:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
