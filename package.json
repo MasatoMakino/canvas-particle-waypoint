@@ -35,11 +35,6 @@
     "build:clean": "gulp build_clean",
     "checkout:docs": "git checkout HEAD ./docs/"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "bugs": {
     "url": "https://github.com/MasatoMakino/canvas-particle-waypoint/issues"
   },
