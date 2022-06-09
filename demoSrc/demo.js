@@ -1,8 +1,8 @@
-import { BezierUtil, GenerationMode } from "particle-waypoint";
+import { BezierUtil, GenerationMode } from "@masatomakino/particle-waypoint";
 import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
-import { RAFTicker, RAFTickerEventType } from "raf-ticker";
+import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
 import * as dat from "dat.gui";
 
 /**

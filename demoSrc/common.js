@@ -1,6 +1,6 @@
 import { getHeartPath } from "./SamplePath";
 import { Canvas2DParticleWay } from "../";
-import { BezierUtil } from "particle-waypoint";
+import { BezierUtil } from "@mastomakino/particle-waypoint";
 
 /**
  * createjsのステージを初期化する。

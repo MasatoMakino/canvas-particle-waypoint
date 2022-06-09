@@ -1,4 +1,4 @@
-import { Particle } from "particle-waypoint";
+import { Particle } from "@masatomakino/particle-waypoint";
 import { MapElement } from "./Canvas2DParticleGenerator";
 
 export class Canvas2DParticle extends Particle {
