@@ -34,7 +34,7 @@
     "prepare": "husky install",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo && npm run typedocs",
-    "demo": "npx @masatomakino/gulptask-demo-page --externalScripts 'https://code.createjs.com/1.0.0/createjs.min.js'",
+    "demo": "npx @masatomakino/gulptask-demo-page",
     "buildTS": "npx tsc --project tsconfig.json & npx tsc --project tsconfig.esm.json",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
     "server": "npx browser-sync ./docs/demo -w",
