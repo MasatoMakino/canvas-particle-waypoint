@@ -3,7 +3,7 @@ import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
 import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
-import * as dat from "dat.gui";
+import GUI from "lil-gui";
 
 /**
  * DOMContentLoaded後の初期化処理。
@@ -46,7 +46,7 @@ const initGenerator = (way, canvas) => {
       ease: createjs.Ease.cubicInOut,
     }
   );
-  generator.animator.setSpeed(33, 30);
+  generator.animator.setSpeed(100, 50);
   generator.play();
   return generator;
 };
@@ -66,7 +66,7 @@ const initGUI = (generator) => {
       generator.particleContainer.removeAll();
     },
   };
-  const gui = new dat.GUI();
+  const gui = new GUI();
   const animator = generator.animator;
   gui.add(animator, "generationInterval", 33, 1000);
   gui.add(animator, "speedPerSec", 0.0001, 0.5);
