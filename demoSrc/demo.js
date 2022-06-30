@@ -3,7 +3,8 @@ import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
 import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
-import * as dat from "dat.gui";
+import { Easing } from "@tweenjs/tween.js";
+import GUI from "lil-gui";
 
 /**
  * DOMContentLoaded後の初期化処理。
@@ -43,10 +44,10 @@ const initGenerator = (way, canvas) => {
     way,
     img,
     {
-      ease: createjs.Ease.cubicInOut,
+      ease: Easing.Cubic.InOut,
     }
   );
-  generator.animator.setSpeed(33, 30);
+  generator.animator.setSpeed(100, 50);
   generator.play();
   return generator;
 };
@@ -66,7 +67,7 @@ const initGUI = (generator) => {
       generator.particleContainer.removeAll();
     },
   };
-  const gui = new dat.GUI();
+  const gui = new GUI();
   const animator = generator.animator;
   gui.add(animator, "generationInterval", 33, 1000);
   gui.add(animator, "speedPerSec", 0.0001, 0.5);
@@ -78,10 +79,13 @@ const initGUI = (generator) => {
     let ease = null;
     switch (prop.ease) {
       case "cubicOut":
-        ease = createjs.Ease.cubicOut;
+        ease = Easing.Cubic.Out;
         break;
       case "cubicInOut":
-        ease = createjs.Ease.cubicInOut;
+        ease = Easing.Cubic.InOut;
+        break;
+      case "liner":
+        ease = Easing.Linear.None;
         break;
     }
     generator.animator.updateEase(ease, generator.modeManager.mode);
