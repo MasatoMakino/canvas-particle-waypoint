@@ -1,6 +1,6 @@
 {
   "name": "@masatomakino/canvas-particle-waypoint",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "description": "Particle waypoint module for canvas 2d",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
