@@ -1,8 +1,8 @@
-import { BezierUtil, GenerationMode } from "@masatomakino/particle-waypoint";
+import { BezierUtil } from "@masatomakino/particle-waypoint";
 import { Canvas2DParticleGenerator } from "../";
 import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
 import { initCanvas, initWay } from "./common";
-import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
+import { RAFTicker } from "@masatomakino/raf-ticker";
 import { Easing } from "@tweenjs/tween.js";
 import GUI from "lil-gui";
 
@@ -16,7 +16,7 @@ const onDomContentsLoaded = () => {
   const way = initWay();
   const generator = initGenerator(way, canvas);
 
-  RAFTicker.addListener(RAFTickerEventType.tick, (e) => {
+  RAFTicker.addListener("tick", (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     generator.draw();
   });
@@ -26,18 +26,12 @@ const onDomContentsLoaded = () => {
 /**
  * パーティクル生成機を初期化する。
  * @param way
- * @param stage
+ * @param canvas
  * @return {CanvasParticleGenerator}
  */
 const initGenerator = (way, canvas) => {
-  const imgArray = [];
-
   const img = new Image();
   img.src = "./circle.png";
-  console.log(img.width);
-  img.onload = () => {
-    console.log(img.width);
-  };
 
   const generator = new Canvas2DParticleGenerator(
     canvas.getContext("2d"),
@@ -62,7 +56,7 @@ const initGUI = (generator) => {
     path: "heart",
     ease: "cubicInOut",
     valve: true,
-    mode: "SEQUENTIAL",
+    mode: "sequential",
     clear: () => {
       generator.particleContainer.removeAll();
     },
@@ -112,16 +106,7 @@ const initGUI = (generator) => {
       generator.stop();
     }
   });
-  gui.add(prop, "mode", ["SEQUENTIAL", "LOOP"]).onChange(() => {
-    switch (prop.mode) {
-      case "SEQUENTIAL":
-        generator.modeManager.mode = GenerationMode.SEQUENTIAL;
-        break;
-      case "LOOP":
-        generator.modeManager.mode = GenerationMode.LOOP;
-        break;
-    }
-  });
+  gui.add(generator.modeManager, "mode", ["sequential", "loop"]);
   gui.add(prop, "valve").onChange(() => {
     if (prop.valve) {
       generator.valve.open();
