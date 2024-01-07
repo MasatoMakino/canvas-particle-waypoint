@@ -1,5 +1,5 @@
 import { Particle } from "@masatomakino/particle-waypoint";
-import { MapElement } from "./Canvas2DParticleGenerator";
+import { MapElement } from "./Canvas2DParticleGenerator.js";
 
 export class Canvas2DParticle extends Particle {
   protected ctx: CanvasRenderingContext2D;
