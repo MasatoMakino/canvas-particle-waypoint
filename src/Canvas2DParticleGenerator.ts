@@ -1,4 +1,4 @@
-import { Canvas2DParticle } from "./Canvas2DParticle";
+import { Canvas2DParticle } from "./Canvas2DParticle.js";
 import {
   ParticleGenerator,
   Particle,

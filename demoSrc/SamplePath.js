@@ -1,4 +1,4 @@
-exports.getHeartPath = () => {
+export const getHeartPath = () => {
   return [
     [199.999692558296, 139.037809861326],
     [
@@ -36,7 +36,7 @@ exports.getHeartPath = () => {
   ];
 };
 
-exports.getCircle = () => {
+export const getCircle = () => {
   const X = 200;
   const Y = 200;
 
@@ -52,7 +52,7 @@ exports.getCircle = () => {
   ];
 };
 
-exports.getTriangle = () => {
+export const getTriangle = () => {
   return [
     [200, 100],
     [300, 273.205080756887],

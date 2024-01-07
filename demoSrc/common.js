@@ -1,5 +1,5 @@
-import { getHeartPath } from "./SamplePath";
-import { Canvas2DParticleWay } from "../";
+import { getHeartPath } from "./SamplePath.js";
+import { Canvas2DParticleWay } from "../esm/index.js";
 import { BezierUtil } from "@masatomakino/particle-waypoint";
 
 /**

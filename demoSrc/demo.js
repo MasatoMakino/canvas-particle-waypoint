@@ -1,7 +1,7 @@
 import { BezierUtil } from "@masatomakino/particle-waypoint";
-import { Canvas2DParticleGenerator } from "../";
-import { getCircle, getHeartPath, getTriangle } from "./SamplePath";
-import { initCanvas, initWay } from "./common";
+import { Canvas2DParticleGenerator } from "../esm/index.js";
+import { getCircle, getHeartPath, getTriangle } from "./SamplePath.js";
+import { initCanvas, initWay } from "./common.js";
 import { RAFTicker } from "@masatomakino/raf-ticker";
 import { Easing } from "@tweenjs/tween.js";
 import GUI from "lil-gui";

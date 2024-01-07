@@ -1,3 +1,3 @@
-export * from "./Canvas2DParticleGenerator";
-export * from "./Canvas2DParticle";
-export * from "./Canvas2DParticleWay";
+export * from "./Canvas2DParticleGenerator.js";
+export * from "./Canvas2DParticle.js";
+export * from "./Canvas2DParticleWay.js";
