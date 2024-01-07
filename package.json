@@ -16,11 +16,11 @@
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@masatomakino/particle-waypoint": "0.6.0 - 0.8.x",
-    "@tweenjs/tween.js": "18.6.4 - 21.x.x"
+    "@masatomakino/particle-waypoint": "0.6.0 - 0.8.x"
   },
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "^0.8.0",
+    "@tweenjs/tween.js": "^21.0.0",
     "browser-sync": "^3.0.2",
     "husky": "^8.0.3",
     "lil-gui": "^0.19.1",
