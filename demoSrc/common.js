@@ -1,6 +1,5 @@
 import { getHeartPath } from "./SamplePath.js";
-import { Canvas2DParticleWay } from "../esm/index.js";
-import { BezierUtil } from "@masatomakino/particle-waypoint";
+import { BezierUtil, ParticleWay } from "@masatomakino/particle-waypoint";
 
 /**
  * createjsのステージを初期化する。
@@ -24,6 +23,6 @@ export function initCanvas() {
  */
 export function initWay() {
   const points = getHeartPath();
-  const wayPoint = new Canvas2DParticleWay(BezierUtil.subdivide(points));
+  const wayPoint = new ParticleWay(BezierUtil.subdivide(points));
   return wayPoint;
 }
