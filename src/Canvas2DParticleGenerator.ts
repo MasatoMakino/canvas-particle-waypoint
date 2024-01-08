@@ -20,23 +20,22 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
     ctx: CanvasRenderingContext2D,
     path: ParticleWay | ParticleWay[],
     map: MapElement | MapElement[],
-    option?: CanvasParticleGeneratorOption
+    option?: CanvasParticleGeneratorOption,
   ) {
     super(path, option);
     this.ctx = ctx;
 
     if (option) {
-      if (option.rangeR) this._rangeR = option.rangeR;
+      if (option.rangeR) this.rangeR = option.rangeR;
       if (option.rangeRotationSpeed)
-        this._rangeRotationSpeed = option.rangeRotationSpeed;
+        this.rangeRotationSpeed = option.rangeRotationSpeed;
     }
 
     if (Array.isArray(map)) {
       if (map.length === 0) {
-        console.warn(
-          "Canvas2DParticleGenerator : オプションとして渡されたビットマップ配列が空です。このクラスは動作しますが、一切の表示を行いません。"
+        throw new Error(
+          "Canvas2DParticleGenerator : オプションとして渡されたビットマップ配列が空です。このクラスは動作しますが、一切の表示を行いません。",
         );
-        console.trace();
       }
       this.map = map;
     } else {
@@ -50,7 +49,7 @@ export class Canvas2DParticleGenerator extends ParticleGenerator {
       this.ctx,
       this.map[this.mapCounter],
       this._rangeR,
-      this._rangeRotationSpeed
+      this._rangeRotationSpeed,
     );
     this.mapCounter = (this.mapCounter += 1) % this.map.length;
     return particle;
