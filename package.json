@@ -1,6 +1,6 @@
 {
   "name": "@masatomakino/canvas-particle-waypoint",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Particle waypoint module for canvas 2d",
   "type": "module",
   "exports": {
