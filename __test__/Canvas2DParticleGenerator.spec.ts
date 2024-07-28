@@ -42,13 +42,12 @@ describe("Canvas2DParticleGenerator", () => {
     expect(generator).toBeInstanceOf(Canvas2DParticleGenerator);
   });
 
-  it.fails(
-    "should create a Canvas2DParticleGenerator instance with an empty image array",
-    () => {
-      const { ctx, particleWay } = generateContextAndWay();
+  it("should create a Canvas2DParticleGenerator instance with an empty image array", () => {
+    const { ctx, particleWay } = generateContextAndWay();
+    expect(() => {
       const generator = new Canvas2DParticleGenerator(ctx!, particleWay, []);
-    },
-  );
+    }).toThrow();
+  });
 
   it("should generate a Canvas2DParticle instance correctly", async () => {
     const { ctx, particleWay } = generateContextAndWay();
