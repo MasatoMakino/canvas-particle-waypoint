@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "^0.10.0",
-    "@masatomakino/release-helper": "^0.2.0",
+    "@masatomakino/release-helper": "^0.3.2",
     "@tweenjs/tween.js": "^25.0.0",
     "@vitest/browser": "*",
     "@vitest/coverage-istanbul": "^3.0.2",
